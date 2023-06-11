@@ -65,6 +65,51 @@ const images = [
     width: 4160,
     height: 6240,
   },
+  {
+    name: "IMG_0111_crop_onlaox",
+    width: 5051,
+    height: 6314,
+  },
+  {
+    name: "IMG_5143_ihgeof",
+    width: 6240,
+    height: 4160,
+  },
+  {
+    name: "IMG_1767_ti4nq8",
+    width: 6240,
+    height: 4160,
+  },
+  {
+    name: "IMG_5739_xkessa",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_1559_gradient_es9iac",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_8882_w6jvqp",
+    width: 2821,
+    height: 4231,
+  },
+  {
+    name: "IMG_9160_eduduc",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_8614_gyftlg",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_1139_jl8thf",
+    width: 4160,
+    height: 6240,
+  },
 ].map((item) => ({ ...item, name: `portraits-website/${item.name}` }));
 
 export const photos = images.map(({ name, width, height }) => ({
