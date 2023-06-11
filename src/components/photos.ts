@@ -1,7 +1,7 @@
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 
-const breakpoints = [2160, 1080, 640, 384, 256, 128];
+// const breakpoints = [2160, 1080, 640, 384, 256, 128];
 
 const cloud = new Cloudinary({
   cloud: {
@@ -52,8 +52,8 @@ const images = [
   },
   {
     name: "bush_slcgzy",
-    width: 6240,
-    height: 4160,
+    width: 624,
+    height: 416,
   },
   {
     name: "river_mmmhj4",
@@ -67,14 +67,8 @@ const images = [
   },
 ].map((item) => ({ ...item, name: `portraits-website/${item.name}` }));
 
-export const photos = images.map(({ name, width, height }) => {
-  const img = cloud.image(name);
-  const urls = breakpoints.map((bp) => img.resize(fill().width(bp)).toURL());
-
-  return {
-    src: urls[0],
-    width,
-    height,
-    srcSet: urls.map((url, i) => ({ src: url, width: breakpoints[i] })),
-  };
-});
+export const photos = images.map(({ name, width, height }) => ({
+  src: cloud.image(name).resize(fill().width(2160)).toURL(),
+  width,
+  height,
+}));
