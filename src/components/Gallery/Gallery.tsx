@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { useState, FC, useCallback } from "react";
 import { Box, ImageList, useMediaQuery, useTheme } from "@mui/material";
 
 import "./Gallery.scss";
@@ -12,6 +12,17 @@ import { photos } from "../photos";
 
 export const Gallery: FC<object> = () => {
   const [index, setIndex] = useState(-1);
+  const [loaded, setLoaded] = useState<Array<boolean>>(
+    Array(photos.length).fill(false)
+  );
+
+  const handleImageLoaded = useCallback((index: number) => {
+    setLoaded((loaded) => {
+      const newLoaded = [...loaded];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  }, []);
 
   const theme = useTheme();
   const overSm = useMediaQuery(theme.breakpoints.up("sm"));
@@ -31,10 +42,13 @@ export const Gallery: FC<object> = () => {
             aspectratio={photo.width / photo.height}
           >
             <img
-              className="gallery__image-thumbnail"
+              className={`gallery__image-thumbnail${
+                loaded[index] ? " loaded" : ""
+              }`}
               src={photo.src}
               alt={photo.src}
               loading="lazy"
+              onLoad={() => handleImageLoaded(index)}
             />
             <PhotoGalleryHoverOverlay onClick={() => setIndex(index)}>
               <PhotoGalleryHoverOverlayIcon>
