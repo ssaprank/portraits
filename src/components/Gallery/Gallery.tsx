@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import React, { useState, FC } from "react";
 
 // import { photos } from "../photos";
 import { Box, ImageList, useMediaQuery, useTheme } from "@mui/material";
