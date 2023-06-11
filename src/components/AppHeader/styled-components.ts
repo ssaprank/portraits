@@ -5,7 +5,7 @@ export const SimpleHeaderBox = styled(Box)({
   display: "flex",
   alignItems: "center",
   marginInline: "2em",
-  justifyContent: "space-between",
+  justifyContent: "center",
   columnGap: "2em",
 });
 
