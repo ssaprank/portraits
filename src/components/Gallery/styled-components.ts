@@ -23,9 +23,12 @@ export const PhotoGalleryHoverOverlayIcon = styled("div")({
   opacity: 0.7,
 });
 
-export const PhotoGalleryItem = styled(ImageListItem)<ImageListItemProps>({
+export const PhotoGalleryItem = styled(ImageListItem)<
+  ImageListItemProps & { aspectratio: number }
+>(({ aspectratio }) => ({
   cursor: "pointer",
   borderRadius: "2%",
   overflow: "hidden",
   border: "2px solid rgba(108, 76, 52, 0.5)",
-});
+  aspectRatio: aspectratio,
+}));

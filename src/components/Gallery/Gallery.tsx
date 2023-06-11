@@ -1,6 +1,4 @@
-import React, { useState, FC } from "react";
-
-// import { photos } from "../photos";
+import { useState, FC } from "react";
 import { Box, ImageList, useMediaQuery, useTheme } from "@mui/material";
 
 import "./Gallery.scss";
@@ -28,7 +26,10 @@ export const Gallery: FC<object> = () => {
         gap={20}
       >
         {photos.map((photo, index) => (
-          <PhotoGalleryItem key={photo.src}>
+          <PhotoGalleryItem
+            key={photo.src}
+            aspectratio={photo.width / photo.height}
+          >
             <img
               className="gallery__image-thumbnail"
               src={photo.src}

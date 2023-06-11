@@ -9,39 +9,72 @@ const cloud = new Cloudinary({
   },
 });
 
-// const namesTest = [
-//   "IMG_8716-2_mstqny",
-//   "IMG_7515-2_ysrwuz",
-//   "IMG_7487_wzkjna",
-//   "IMG_0069_oaelrf",
-//   "IMG_8246_hngsid",
-//   "IMG_8419_ocuom4",
-//   "IMG_0096_tpcrls",
-//   "IMG_0188_tejyrp",
-// ].map((item) => `portraits-website-test/${item}`);
+const images = [
+  {
+    name: "IMG_1971_qoxeak",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_7487_y4amo6",
+    width: 3456,
+    height: 5184,
+  },
+  {
+    name: "IMG_6544-Edit_hzwcge",
+    width: 5768,
+    height: 3856,
+  },
+  {
+    name: "IMG_8287-Edit1_warvnk",
+    width: 3707,
+    height: 5561,
+  },
+  {
+    name: "IMG_8456-Edit_mvkda2",
+    width: 3917,
+    height: 5701,
+  },
+  {
+    name: "IMG_6662_jff9rp",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "IMG_7508-PP4_pspz9c",
+    width: 2532,
+    height: 3798,
+  },
+  {
+    name: "bridge_f4cvkk",
+    width: 4160,
+    height: 6240,
+  },
+  {
+    name: "bush_slcgzy",
+    width: 6240,
+    height: 4160,
+  },
+  {
+    name: "river_mmmhj4",
+    width: 3435,
+    height: 5152,
+  },
+  {
+    name: "IMG_0204_cf8ye7",
+    width: 4160,
+    height: 6240,
+  },
+].map((item) => ({ ...item, name: `portraits-website/${item.name}` }));
 
-const names = [
-  "IMG_1971_qoxeak",
-  "IMG_7487_y4amo6",
-  "IMG_6544-Edit_hzwcge",
-
-  "IMG_8287-Edit1_warvnk",
-  "IMG_8456-Edit_mvkda2",
-  "IMG_6662_jff9rp",
-  "IMG_7508-PP4_pspz9c",
-  "bridge_f4cvkk",
-  "bush_slcgzy",
-  "river_mmmhj4",
-  "IMG_0204_cf8ye7",
-].map((item) => `portraits-website/${item}`);
-
-export const photos = names.map((name) => {
+export const photos = images.map(({ name, width, height }) => {
   const img = cloud.image(name);
-
   const urls = breakpoints.map((bp) => img.resize(fill().width(bp)).toURL());
 
   return {
     src: urls[0],
+    width,
+    height,
     srcSet: urls.map((url, i) => ({ src: url, width: breakpoints[i] })),
   };
 });
