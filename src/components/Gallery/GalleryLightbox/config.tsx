@@ -6,7 +6,7 @@ export const zoomConfig = {
   doubleClickMaxStops: 1,
   keyboardMoveDistance: 50,
   wheelZoomDistanceFactor: 1000,
-  pinchZoomDistanceFactor: 1000,
+  pinchZoomDistanceFactor: 2000,
   scrollToZoom: true,
 };
 
