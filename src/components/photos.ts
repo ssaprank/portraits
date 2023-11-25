@@ -11,6 +11,11 @@ const cloud = new Cloudinary({
 
 const images = [
   {
+    name: "mw0ykeitbzwoqmcl93hg",
+    width: 2080,
+    height: 3120,
+  },
+  {
     name: "IMG_1971_qoxeak",
     width: 4160,
     height: 6240,
