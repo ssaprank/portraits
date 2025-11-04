@@ -1,124 +1,237 @@
-import { Cloudinary } from "@cloudinary/url-gen";
-import { fill } from "@cloudinary/url-gen/actions/resize";
+import {
+  BREAKPOINT_LARGE,
+  BREAKPOINT_MEDIUM,
+  BREAKPOINT_SMALL,
+} from "../constants";
 
-// const breakpoints = [2160, 1080, 640, 384, 256, 128];
+const URL_FORMAT =
+  "https://res.cloudinary.com/dlhhw8bit/image/upload/{PLACEHOLDER}.jpg";
 
-const cloud = new Cloudinary({
-  cloud: {
-    cloudName: "dlhhw8bit",
-  },
-});
+const LARGE_FOLDER_PREFIX = "portraits-website-large";
+const MEDIUM_FOLDER_PREFIX = "portraits-website-medium";
+const SMALL_FOLDER_PREFIX = "portraits-website-small";
 
 const images = [
   {
-    name: "mw0ykeitbzwoqmcl93hg",
-    width: 2080,
-    height: 3120,
+    name: "november",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "november_l",
+      [BREAKPOINT_MEDIUM]: "november_m",
+      [BREAKPOINT_SMALL]: "november",
+    },
   },
   {
-    name: "IMG_1971_qoxeak",
-    width: 4160,
-    height: 6240,
+    name: "birthday",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "birthday_l",
+      [BREAKPOINT_MEDIUM]: "birthday_m",
+      [BREAKPOINT_SMALL]: "birthday_s",
+    },
   },
   {
-    name: "IMG_7487_y4amo6",
-    width: 3456,
-    height: 5184,
+    name: "park",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "park_l",
+      [BREAKPOINT_MEDIUM]: "park_m",
+      [BREAKPOINT_SMALL]: "park_s",
+    },
   },
   {
-    name: "IMG_6544-Edit_hzwcge",
-    width: 5768,
-    height: 3856,
+    name: "dance",
+    fullHeight: 1369,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "dance_l",
+      [BREAKPOINT_MEDIUM]: "dance_m",
+      [BREAKPOINT_SMALL]: "dance_s",
+    },
   },
   {
-    name: "IMG_8287-Edit1_warvnk",
-    width: 3707,
-    height: 5561,
+    name: "harph",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "harph_l",
+      [BREAKPOINT_MEDIUM]: "harph_m",
+      [BREAKPOINT_SMALL]: "harph_s",
+    },
   },
   {
-    name: "IMG_8456-Edit_mvkda2",
-    width: 3917,
-    height: 5701,
+    name: "roses",
+    fullHeight: 2981,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "roses_l",
+      [BREAKPOINT_MEDIUM]: "roses_m",
+      [BREAKPOINT_SMALL]: "roses_s",
+    },
   },
   {
-    name: "IMG_6662_jff9rp",
-    width: 4160,
-    height: 6240,
+    name: "power",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "power_l",
+      [BREAKPOINT_MEDIUM]: "power_m",
+      [BREAKPOINT_SMALL]: "power_s",
+    },
   },
   {
-    name: "IMG_7508-PP4_pspz9c",
-    width: 2532,
-    height: 3798,
+    name: "cage",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "cage_l",
+      [BREAKPOINT_MEDIUM]: "cage_m",
+      [BREAKPOINT_SMALL]: "cage_s",
+    },
   },
   {
-    name: "bridge_f4cvkk",
-    width: 4160,
-    height: 6240,
+    name: "bridge",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "bridge_l",
+      [BREAKPOINT_MEDIUM]: "bridge_m",
+      [BREAKPOINT_SMALL]: "bridge_s",
+    },
   },
   {
-    name: "bush_slcgzy",
-    width: 624,
-    height: 416,
+    name: "bush",
+    fullHeight: 1365,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "bush_l",
+      [BREAKPOINT_MEDIUM]: "bush_m",
+      [BREAKPOINT_SMALL]: "bush_s",
+    },
   },
   {
-    name: "river_mmmhj4",
-    width: 3435,
-    height: 5152,
+    name: "river",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "river_l",
+      [BREAKPOINT_MEDIUM]: "river_m",
+      [BREAKPOINT_SMALL]: "river_s",
+    },
   },
   {
-    name: "IMG_0204_cf8ye7",
-    width: 4160,
-    height: 6240,
+    name: "casual",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "casual_l",
+      [BREAKPOINT_MEDIUM]: "casual_m",
+      [BREAKPOINT_SMALL]: "casual_s",
+    },
   },
   {
-    name: "IMG_0111_crop_onlaox",
-    width: 5051,
-    height: 6314,
+    name: "lake",
+    fullHeight: 2560,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "lake_l",
+      [BREAKPOINT_MEDIUM]: "lake_m",
+      [BREAKPOINT_SMALL]: "lake_s",
+    },
   },
   {
-    name: "IMG_5143_ihgeof",
-    width: 6240,
-    height: 4160,
+    name: "couple",
+    fullHeight: 1365,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "couple_l",
+      [BREAKPOINT_MEDIUM]: "couple_m",
+      [BREAKPOINT_SMALL]: "couple_s",
+    },
   },
   {
-    name: "IMG_1767_ti4nq8",
-    width: 6240,
-    height: 4160,
+    name: "balcony",
+    fullHeight: 1365,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "balcony_l",
+      [BREAKPOINT_MEDIUM]: "balcony_m",
+      [BREAKPOINT_SMALL]: "balcony_s",
+    },
   },
   {
-    name: "IMG_5739_xkessa",
-    width: 4160,
-    height: 6240,
+    name: "smile",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "smile_l",
+      [BREAKPOINT_MEDIUM]: "smile_m",
+      [BREAKPOINT_SMALL]: "smile_s",
+    },
   },
   {
-    name: "IMG_1559_gradient_es9iac",
-    width: 4160,
-    height: 6240,
+    name: "open",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "open_l",
+      [BREAKPOINT_MEDIUM]: "open_m",
+      [BREAKPOINT_SMALL]: "open_s",
+    },
   },
   {
-    name: "IMG_8882_w6jvqp",
-    width: 2821,
-    height: 4231,
+    name: "window",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "window_l",
+      [BREAKPOINT_MEDIUM]: "window_m",
+      [BREAKPOINT_SMALL]: "window_s",
+    },
   },
   {
-    name: "IMG_9160_eduduc",
-    width: 4160,
-    height: 6240,
+    name: "broken",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "broken_l",
+      [BREAKPOINT_MEDIUM]: "broken_m",
+      [BREAKPOINT_SMALL]: "broken_s",
+    },
   },
   {
-    name: "IMG_8614_gyftlg",
-    width: 4160,
-    height: 6240,
+    name: "model",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "model_l",
+      [BREAKPOINT_MEDIUM]: "model_m",
+      [BREAKPOINT_SMALL]: "model_s",
+    },
   },
   {
-    name: "IMG_1139_jl8thf",
-    width: 4160,
-    height: 6240,
+    name: "devil",
+    fullHeight: 3072,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: "devil_l",
+      [BREAKPOINT_MEDIUM]: "devil_m",
+      [BREAKPOINT_SMALL]: "devil_s",
+    },
   },
-].map((item) => ({ ...item, name: `portraits-website/${item.name}` }));
+];
 
-export const photos = images.map(({ name, width, height }) => ({
-  src: cloud.image(name).resize(fill().width(2160)).toURL(),
-  width,
-  height,
-}));
+export const photos = images.map(
+  ({
+    name,
+    fullHeight,
+    srcSetNames: {
+      [BREAKPOINT_LARGE]: largeName,
+      [BREAKPOINT_MEDIUM]: mediumName,
+      [BREAKPOINT_SMALL]: smallName,
+    },
+  }) => ({
+    name,
+    srcSet: {
+      small: URL_FORMAT.replace(
+        "{PLACEHOLDER}",
+        `${SMALL_FOLDER_PREFIX}/${smallName}`
+      ),
+      medium: URL_FORMAT.replace(
+        "{PLACEHOLDER}",
+        `${MEDIUM_FOLDER_PREFIX}/${mediumName}`
+      ),
+      large: URL_FORMAT.replace(
+        "{PLACEHOLDER}",
+        `${LARGE_FOLDER_PREFIX}/${largeName}`
+      ),
+    },
+    fullHeight,
+    src: URL_FORMAT.replace(
+      "{PLACEHOLDER}",
+      `${LARGE_FOLDER_PREFIX}/${largeName}`
+    ),
+  })
+);

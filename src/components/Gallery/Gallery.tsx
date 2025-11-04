@@ -9,6 +9,12 @@ import {
 } from "./styled-components";
 import { GalleryLightbox } from "./GalleryLightbox/GalleryLightbox";
 import { photos } from "../photos";
+import {
+  BREAKPOINT_LARGE,
+  BREAKPOINT_MEDIUM,
+  BREAKPOINT_SMALL,
+  FULL_WIDTH,
+} from "../../constants";
 
 export const Gallery: FC<object> = () => {
   const [index, setIndex] = useState(-1);
@@ -38,15 +44,16 @@ export const Gallery: FC<object> = () => {
       >
         {photos.map((photo, index) => (
           <PhotoGalleryItem
-            key={photo.src}
-            aspectratio={photo.width / photo.height}
+            // key={photo.srcSet[BREAKPOINT_LARGE]}
+            aspectratio={FULL_WIDTH / photo.fullHeight}
           >
             <img
               className={`gallery__image-thumbnail${
                 loaded[index] ? " loaded" : ""
               }`}
-              src={photo.src}
-              alt={photo.src}
+              srcSet={`${photo.srcSet.small} ${BREAKPOINT_SMALL}w, ${photo.srcSet.medium} ${BREAKPOINT_MEDIUM}w, ${photo.srcSet.large} ${BREAKPOINT_LARGE}w, ${photo.srcSet.large}`}
+              sizes={`(max-width: ${BREAKPOINT_SMALL}px) ${BREAKPOINT_SMALL}px, (max-width: ${BREAKPOINT_MEDIUM}px) ${BREAKPOINT_MEDIUM}px, (max-width: ${BREAKPOINT_LARGE}px) ${BREAKPOINT_LARGE}px, ${BREAKPOINT_LARGE}px`}
+              alt="Amelin Photography"
               loading="lazy"
               onLoad={() => handleImageLoaded(index)}
             />

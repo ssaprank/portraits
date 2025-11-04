@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect } from "react";
-import { Lightbox, SlideImage } from "yet-another-react-lightbox";
+import { Lightbox } from "yet-another-react-lightbox";
 import { Zoom } from "yet-another-react-lightbox/plugins";
 import { renderConfig, zoomConfig, animationConfig } from "./config";
 import { photos } from "../../photos";
@@ -36,7 +36,7 @@ export const GalleryLightbox: FC<Props> = ({ index, setIndex }) => {
       open={index >= 0}
       index={index}
       close={() => setIndex(-1)}
-      slides={photos as SlideImage[]}
+      slides={photos.map(({ name, src }) => ({ src, name }))}
       plugins={[Zoom]}
       animation={animationConfig}
       zoom={zoomConfig}
