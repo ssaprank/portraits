@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amelin-photography.vercel.app/sitemap.xml

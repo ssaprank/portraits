@@ -1,0 +1,140 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #213547;
+  background-color: #e8d1c4;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --brown: rgba(108, 76, 52, 1);
+  --brown-translucent: rgba(108, 76, 52, 0.5);
+}
+
+/* Header */
+
+.header {
+  margin: 24px 2em;
+  text-align: center;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2em;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: Italianno, cursive;
+  font-size: 3.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.header__instagram {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--brown);
+  transition: transform 0.4s ease-in-out;
+}
+
+.header__instagram:hover {
+  transform: scale(1.1);
+}
+
+.header__instagram svg {
+  width: 40px;
+  height: 40px;
+  fill: currentColor;
+}
+
+.header__intro {
+  max-width: 36em;
+  margin: 0.5em auto 0;
+  color: var(--brown);
+}
+
+.header__intro a {
+  color: inherit;
+}
+
+/* Gallery: masonry via CSS columns, 1 → 2 → 3 → 4 columns */
+
+.gallery {
+  width: 90vw;
+  margin: auto;
+  column-count: 1;
+  column-gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1536px) {
+  .gallery {
+    column-count: 4;
+  }
+}
+
+.gallery__item {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  border: 2px solid var(--brown-translucent);
+  border-radius: 2%;
+  overflow: hidden;
+}
+
+.gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.js .gallery__item img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.js .gallery__item img.loaded {
+  opacity: 1;
+}
+
+.gallery__overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background-color: var(--brown-translucent);
+}
+
+.gallery__item:hover .gallery__overlay,
+.gallery__item:focus-visible .gallery__overlay {
+  opacity: 1;
+}
+
+.gallery__overlay svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  fill: #fff;
+  opacity: 0.7;
+}

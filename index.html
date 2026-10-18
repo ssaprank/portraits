@@ -2,26 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <meta name="description" content="Portrait Photography by Stanislav Amelin. Personal photoshoots in Krakow, Poland.">
-    <meta name="keywords" content="photography, personal photos, portrait photography, Stanislav Amelin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stanislav Amelin – Portrait Photographer in Kraków</title>
+    <meta name="description" content="Portrait photography by Stanislav Amelin. Personal and couple photoshoots in Kraków, Poland.">
     <meta name="author" content="Stanislav Amelin">
-    <meta property="og:title" content="Portrait Photography by Stanislav Amelin">
-    <meta property="og:description" content="Personal photoshoots in Krakow, Poland.">
-    <meta property="og:image" content="https://res.cloudinary.com/dlhhw8bit/image/upload/c_fill,w_2160/v1/portraits-website/izeedhmng6xvcd58g55c">
+    <meta name="theme-color" content="#e8d1c4">
+    <link rel="canonical" href="https://amelin-photography.vercel.app/">
+
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+
+    <meta property="og:title" content="Stanislav Amelin – Portrait Photographer in Kraków">
+    <meta property="og:description" content="Personal and couple photoshoots in Kraków, Poland.">
+    <meta property="og:image" content="https://res.cloudinary.com/dlhhw8bit/image/upload/c_fill,g_auto,w_1200,h_630,f_jpg,q_auto/v1/portraits-website/izeedhmng6xvcd58g55c">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Woman with long dark hair looking over her shoulder against a snowy forest">
     <meta property="og:url" content="https://amelin-photography.vercel.app/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Portrait Photography by Stanislav Amelin">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Stanislav Amelin Portrait Photography">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portrait Photography</title>
+    <!--jsonld-->
+
+    <!-- Lets the CSS hide lazy images until they load, only when JS can reveal them -->
+    <script>document.documentElement.className = "js";</script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="header">
+      <div class="header__title">
+        <h1>Stanislav Amelin Portrait Photography</h1>
+        <a
+          class="header__instagram"
+          href="https://www.instagram.com/amelin.photography/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+          </svg>
+        </a>
+      </div>
+      <p class="header__intro">
+        Portrait photographer based in Kraków, Poland. Personal and couple
+        photoshoots. Message me on
+        <a href="https://www.instagram.com/amelin.photography/" target="_blank" rel="noopener">Instagram</a>
+        to book a session.
+      </p>
+    </header>
+
+    <main>
+      <div id="gallery" class="gallery"><!--gallery--></div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
